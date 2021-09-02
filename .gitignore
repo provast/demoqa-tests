@@ -1,3 +1,11 @@
+.idea
+*.iml
+*.ipr
+*.iws
+target
+build
+.allure
+allure-results
 .gradle
 /build/
 
