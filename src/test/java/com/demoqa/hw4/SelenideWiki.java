@@ -2,6 +2,8 @@ package com.demoqa.hw4;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -30,5 +32,12 @@ public class SelenideWiki {
         wikiBox.$(byText(currentPage)).shouldBe(visible).click();
         $("#wiki-wrapper h1").shouldHave(text(currentPage));
         $("#wiki-body").shouldHave(text("Using JUnit5"));
+    }
+
+    @Test
+    void checkPageTitle() {
+        open("/selenide/selenide/wiki");
+
+        Assertions.assertTrue(WebDriverRunner.getWebDriver().getTitle().contains("selenide/selenide Wiki"));
     }
 }
